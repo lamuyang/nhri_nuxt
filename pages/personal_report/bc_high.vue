@@ -1,6 +1,6 @@
 <template>
     <div>
-        <embed id="test" src="/pdf/BC_high.pdf" width="100%"/>
+        <iframe id="test" src="/pdf/BC_high.pdf" width="100%"/>
     </div>
 </template>
 <style>
