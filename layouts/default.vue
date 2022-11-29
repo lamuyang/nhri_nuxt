@@ -8,6 +8,41 @@
       fixed
       app
     >
+      <v-list
+        dense
+        nav
+      >
+        <v-list-item to="/latest_news">
+          <v-list-item-content>
+            <v-list-item-title>最新消息</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item to="/precision_medicine">
+          <v-list-item-content>
+            <v-list-item-title>精準醫療</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title>服務項目</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item to="/about_nhri" >
+          <v-list-item-content>
+            <v-list-item-title>檢驗單位</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title>諮詢專區</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item to="/personal_report" >
+          <v-list-item-content>
+            <v-list-item-title>個人專區</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
       <v-app-bar app height="80" flat fixed color="rgba(206, 206, 206 ,1)">
         <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
