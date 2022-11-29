@@ -38,7 +38,8 @@
                     large
                     color="teal"
                     class="mr-2"
-                    :to="`/personal_report/${title.low_file_name}`"
+                    herf="/pdf/BC_low.pdf"
+                    download=""
                 >
                 {{ title.low }}
                 </v-btn>
