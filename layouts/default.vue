@@ -1,43 +1,32 @@
 <template>
   <v-app>
+    <v-navigation-drawer
+      v-model="drawer"
+      v-if="isMobile"
+      :mini-variant="false"
+      :clipped="clipped"
+      fixed
+      app
+    >
+    </v-navigation-drawer>
       <v-app-bar app height="80" flat fixed color="rgba(206, 206, 206 ,1)">
-        <v-spacer />
-            <v-img
-            class="mr-2"
-            :src="require(`~/assets/logo/logo3.svg`)"
-            max-width="400"
-            contain
-            />
-            <!-- <v-toolbar-title class="primary--text text--darken-2 font-weight-black" v-text="title" style="font-family: TaipeiSans;" /> -->
+        <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
+          <v-img
+          class="mr-2"
+          :src="require(`~/assets/logo/logo-01.svg`)"
+          max-width="40"
+          contain
+          />
+          <v-toolbar-title class="primary--text text--darken-2 font-weight-black" v-text="title" />
           <v-spacer />
-        <!-- <v-spacer />
-        <v-row>
-          <v-col cols="1">
-            <v-img
-            class="mr-2"
-            :src="require(`~/assets/logo/logo.svg`)"
-            max-width="100"
-            contain
-            />
-          </v-col>
-          <v-col cols="auto">
-            <v-row>
-            <v-toolbar-title class="primary--text text--darken-2 font-weight-black" v-text="title" style="font-family: TaipeiSans; font-size: 2rem;" />
-            </v-row>
-            <v-row>
-              <v-toolbar-title class="primary--text text--darken-2 font-weight-black" v-text="eng_title" style="font-family: TaipeiSans;  font-size: 1rem;" />
-            </v-row>
-          </v-col>
-      </v-row>
-      <v-spacer /> -->
+          <Header v-if="!isMobile" />
       </v-app-bar>
       <v-main>
-        <v-container>
-          <Header />
+        <v-container class="mt-2" style="height: 100%">
           <nuxt/>
         </v-container>
       </v-main>
-      <Footer />
+      <!-- <Footer /> -->
   </v-app>
 </template>
 
@@ -47,9 +36,25 @@ export default {
   data() {
     return {
       title: "台灣基因檢測與風險預測平台",
-      eng_title: "Taiwan Genetic test and Risk Prediction Platform"
+      eng_title: "Taiwan Genetic test and Risk Prediction Platform",
+      drawer: false,
+      clipped: false,
     }
   },
+  computed: {
+    isMobile() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          // return true
+        case 'sm':
+        case 'md':
+          return true
+        case 'lg':
+        case 'xl':
+          return false
+      }
+    },
+  }
 }
 </script>
 

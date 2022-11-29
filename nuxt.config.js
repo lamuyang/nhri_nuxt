@@ -26,6 +26,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/axios' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -35,11 +36,33 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxt/content',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
+  // axios: {
+  //   axios: {
+  //     baseURL: 'http://localhost:8000/',
+  //   },
+  // },
+  axios: {
+    proxy: true,
+    prefix: '/api',
+    credentials: true,
+  },
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8000/',
+      changeOrigin: true, 
+      pathRewrite: {
+        '^/api': '',
+      },
+    }
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
