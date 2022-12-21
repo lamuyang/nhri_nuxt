@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="article in articleArr" v-bind:key="article.id">
-      <v-card elevation="2" outlined class="mt-5">
+      <v-card elevation="2" outlined class="mt-5" hover>
         <v-card-title class="h1">{{ article.title }}</v-card-title>
         <v-card-subtitle>{{ article.subtitle }}</v-card-subtitle>
         <v-card-text>{{ article.abstract }}</v-card-text>

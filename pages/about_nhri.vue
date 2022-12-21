@@ -53,7 +53,7 @@
                 <v-list-item-title>培育醫學人才</v-list-item-title>
             </v-list-item-content>
         </v-list-item>
-        <v-card-text>以上文章節錄自：https://biomeder.com/what-is-precision-medicine/</v-card-text>
+        <v-card-text>以上文章節錄自：https://www.nhri.edu.tw</v-card-text>
     </v-card>
   </div>
 </template>

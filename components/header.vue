@@ -6,28 +6,44 @@
         <v-btn shaped x-large to="/precision_medicine" class="mr-2">
             精準醫療
         </v-btn>
-        <v-menu open-on-hover offset-y transition="slide-y-transition" bottom right>
+        <v-menu :close-on-content-click="false" open-on-hover bottom offset-y>
             <template v-slot:activator="{ on, attrs }">
                 <v-btn shaped x-large v-bind="attrs" v-on="on" class="mr-2">
                     服務項目
                 </v-btn>
             </template>
             <v-list dense>
-                <v-list-item v-for="(item, index) in services" :key="index" router :to="item.link">
-                    <v-list-item-action>
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
-                    </v-list-item-action>
+                <v-list-group
+                    v-for="item in items"
+                    :key="item.title"
+                >
+                <template v-slot:activator>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item-content>
                 </v-list-item>
-            </v-list>
+              </template>
+              <v-list-item
+                v-for="subItem in item.items"
+                :key="subItem.title"
+                :to="`${subItem.link}`"
+              >
+                <v-list-item-content>
+                  <v-list-item-title>{{ subItem.title }}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-group>
+          </v-list>
         </v-menu>
-        <v-btn shaped x-large to="/about_nhri" class="mr-2">
-            檢驗單位
-        </v-btn>
-        <v-btn shaped x-large to="/contact" class="mr-2">
+        <v-btn shaped x-large to="/FAQ" class="mr-2">
             諮詢專區
         </v-btn>
-        <v-btn shaped x-large to="/personal_report" class="mr-2">
+        <v-btn shaped x-large to="/login" class="mr-2">
             個人專區
+        </v-btn>
+        <v-btn shaped x-large to="/about_nhri" class="mr-2">
+            聯絡我們
         </v-btn>
     </div>
 </template>
@@ -47,15 +63,31 @@ export default {
             }
         ],
         mini: true,
-        services: [{
-                icon: "mdi-domain",
+        items: [{
                 title: "乳癌基因體檢測",
-                link: "/mmrservices"
+                items: [
+                    {
+                        title: "認識乳癌",
+                        link: "/about_breast_cancer"
+                    },
+                    {
+                        title: "檢測流程",
+                        link: "/test_flow"
+                    }
+                ]
             },
             {
-                icon: "mdi-message-text",
                 title: "高血壓基因體檢測",
-                link: "/amrservices"
+                items: [
+                    {
+                        title: "認識高血壓",
+                        link: "/about_hypertension"
+                    },
+                    {
+                        title: "檢測流程",
+                        link: "/test_flow"
+                    }
+                ]
             },
         ]
     })

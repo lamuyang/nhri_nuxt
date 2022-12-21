@@ -1,0 +1,12 @@
+<template>
+    <div>
+        <v-img
+            :src="require(`~/assets/img/hy_22.png`)"
+            contain
+        />
+        <v-img
+            :src="require(`~/assets/img/hy_11.png`)"
+            contain
+        />
+    </div>
+</template>

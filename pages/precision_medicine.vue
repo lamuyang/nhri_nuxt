@@ -2,10 +2,10 @@
     <div>
     <v-card elevation="2" outlined class="mt-5">
         <v-img
-          :src="require(`~/assets/img/PM.jpg`)"
+          :src="require(`~/assets/img/new_pm.png`)"
           contain
           />
-        <v-card-title>【什麼是】精準醫療Precision Medicine?</v-card-title>
+        <v-card-title>什麼是精準醫療 Precision Medicine?</v-card-title>
         <!-- <v-card-subtitle>{{ article.subtitle }}</v-card-subtitle> -->
         <v-divider></v-divider>
         <v-card-text>精準醫療是什麼?這個專有名詞和我們有什麼關係。事實上，你已經有接觸或知道精準醫療。例如說在病人需要輸血，我們都知道要配對血型，而不是隨便找一包血就可以輸血，這就是精準醫療概念的應用。但是到近幾年，我們才比較有聽到這樣的名詞。要和大家介紹這個名詞，因為有越來越多根據精準醫療的概念，所開發的醫療器材和基礎研究。</v-card-text>
@@ -18,6 +18,13 @@
         <v-card-text>簡言之，精準醫療的本質，像是醫療版本的「因材施教」，而醫生就是老師，病患就是學生。而因材施教需要方法，各種精準醫療延伸出來的治療和預防技術，就是這些方法。當醫療方法更完善精準，我們就有機會接受到更有效率的治療。</v-card-text>
         <v-card-text>資料參考：https://medlineplus.gov/genetics/understanding/precisionmedicine/definition/</v-card-text>
         <v-card-text>以上文章節錄自：https://biomeder.com/what-is-precision-medicine/</v-card-text>
+    </v-card>
+    <v-card class="mt-5">
+          <v-card-title tag="ul">平台介紹</v-card-title>
+          <v-card-text tag="li">落實精準醫療，使全基因定序「普及化」</v-card-text>
+          <v-card-text tag="li">讓人們認識基因定序的重要性</v-card-text>
+          <v-card-text tag="li">鼓勵更多人提早進行基因定序</v-card-text>
+          <v-card-text tag="li">了解可能潛在的疾病風險並及早預防和接受治療</v-card-text>
     </v-card>
   </div>
 </template>

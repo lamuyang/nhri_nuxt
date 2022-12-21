@@ -22,22 +22,45 @@
             <v-list-item-title>精準醫療</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
-          <v-list-item-content>
+        <v-list-group>
+          <template v-slot:activator>
             <v-list-item-title>服務項目</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+          </template>
+        <v-list dense>
+                <v-list-group
+                    v-for="item in items"
+                    :key="item.title"
+                >
+                <template v-slot:activator>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </template>
+              <v-list-item
+                v-for="subItem in item.items"
+                :key="subItem.title"
+                :to="`${subItem.link}`"
+              >
+                <v-list-item-content>
+                  <v-list-item-title >{{ subItem.title }}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-group>
+          </v-list>
+        </v-list-group>
         <v-list-item to="/about_nhri" >
           <v-list-item-content>
-            <v-list-item-title>檢驗單位</v-list-item-title>
+            <v-list-item-title>聯絡我們</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item to="/FAQ">
           <v-list-item-content>
             <v-list-item-title>諮詢專區</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item to="/personal_report" >
+        <v-list-item to="/login" >
           <v-list-item-content>
             <v-list-item-title>個人專區</v-list-item-title>
           </v-list-item-content>
@@ -61,7 +84,7 @@
           <nuxt/>
         </v-container>
       </v-main>
-      <!-- <Footer /> -->
+      <Footer />
   </v-app>
 </template>
 
@@ -70,10 +93,37 @@ export default {
   name: 'DefaultLayout',
   data() {
     return {
-      title: "台灣基因檢測與風險預測平台",
+      title: "精準健康基因體資訊系統",
       eng_title: "Taiwan Genetic test and Risk Prediction Platform",
       drawer: false,
       clipped: false,
+      items: [{
+                title: "乳癌基因體檢測",
+                items: [
+                    {
+                        title: "認識乳癌",
+                        link: "/about_breast_cancer"
+                    },
+                    {
+                        title: "檢測流程",
+                        link: "/test_flow"
+                    }
+                ]
+            },
+            {
+                title: "高血壓基因體檢測",
+                items: [
+                    {
+                        title: "認識高血壓",
+                        link: "/about_hypertension"
+                    },
+                    {
+                        title: "檢測流程",
+                        link: "/test_flow"
+                    }
+                ]
+            },
+        ]
     }
   },
   computed: {
